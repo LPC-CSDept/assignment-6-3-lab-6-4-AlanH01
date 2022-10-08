@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 using namespace std;
 int getSum(int);
 int main()
@@ -21,8 +22,8 @@ int main()
 int getSum(int n)
 {
   int number;
-  int max = -1;
-  int min = 9999999;
+  int max = INT_MIN;
+  int min = INT_MAX;
   int sum = 0;
   cout << "Enter " << n << " values:\n";
   for (int i = 0 ; i < n ; i++)
@@ -30,14 +31,10 @@ int getSum(int n)
       cin >> number;
       sum += number;
       if (max < number)
-      {
         max = number;
-      }
       if (min > number)
-      {
         min = number;
-      }
     }
-  sum = sum - max - min;
+  sum = (sum - max - min);
   return sum;
 }
